@@ -6,11 +6,11 @@ There are two APIs which are neede here - the first is the Point of Interest (PO
 
 The POI API is as follows:
 
-(My API key is: ercfF032eCm1qy8QKpS37UIEeGoWkb8Z - 2500 free calls per day)
+(Make an API key - 2500 free calls per day)
 
 Example call for EV charger POI with output as JSON centered on a lon/lat point:
 
-https://api.tomtom.com/search/2/nearbySearch/.json?key=ercfF032eCm1qy8QKpS37UIEeGoWkb8Z&lon=-122.427&lat=37.772&radius=50000&categorySet=7309&countrySet=US
+https://api.tomtom.com/search/2/nearbySearch/.json?key={Your_API_Key}&lon=-122.427&lat=37.772&radius=50000&categorySet=7309&countrySet=US
 
 
 The ChargerAvailability API is as follows:
