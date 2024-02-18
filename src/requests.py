@@ -1,9 +1,11 @@
 import os
 import json
+import time
 import requests
+import schedule
 import numpy as np
 
-from .utilities import ProgressBar
+from utilities import ProgressBar
 
 default_key='ercfF032eCm1qy8QKpS37UIEeGoWkb8Z'
 tomtom_charger_code=7309
@@ -58,3 +60,19 @@ def TomTom_EVSE_Information(charger_ids,key=default_key,disp=True):
 			pass
 
 	return results
+
+
+def TomTom_EVSE_Information_scheduler(charger_ids):
+	result = TomTom_EVSE_Information(charger_ids=charger_ids, key=default_key, disp=True)
+	print("result afters interval", result)
+	
+
+def schedule_task(interval_minutes, charger_ids):
+
+    interval_seconds = interval_minutes * 60
+
+    schedule.every(interval_seconds).seconds.do(TomTom_EVSE_Information_scheduler, charger_ids)
+    
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
